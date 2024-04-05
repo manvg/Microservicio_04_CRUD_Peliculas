@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Pelicula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idpelicula")
+    @Column(name = "id_pelicula")
     private Long idpelicula;
     @Column(name = "titulo")
     private String titulo;

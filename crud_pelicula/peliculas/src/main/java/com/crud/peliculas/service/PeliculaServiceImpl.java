@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.crud.peliculas.model.Pelicula;
+import com.crud.peliculas.model.ResponseModel;
 import com.crud.peliculas.repository.PeliculaRepository;
 
 @Service
@@ -40,9 +41,18 @@ public class PeliculaServiceImpl implements PeliculaService{
     }
 
     @Override
-    public void deletePelicula(Long id){
+    public ResponseModel deletePelicula(Long id){
+        String message = "";
+        Boolean status = false;
+        
         if (peliculaRepository.existsById(id)) {
             peliculaRepository.deleteById(id);
+            status = true;
+            message = "La película ha sido eliminada con éxito.";
+        }else{
+            message = "No se puede realizar la acción. La película no existe.";
         }
+
+        return new ResponseModel(status, message);
     }
 }

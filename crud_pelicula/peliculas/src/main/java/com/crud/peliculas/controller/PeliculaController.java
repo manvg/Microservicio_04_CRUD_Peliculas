@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crud.peliculas.model.Pelicula;
+import com.crud.peliculas.model.ResponseModel;
 import com.crud.peliculas.service.PeliculaService;
 
 @RestController
@@ -29,8 +30,7 @@ public class PeliculaController {
 
     @GetMapping("/{id}")
     public Optional<Pelicula> getPeliculaById(@PathVariable Long id){
-        var respuesta = peliculaService.getPeliculaById(id);
-        return respuesta;
+        return peliculaService.getPeliculaById(id);
     }
 
     @PostMapping
@@ -44,7 +44,7 @@ public class PeliculaController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletePelicula(@PathVariable Long id){
-        peliculaService.deletePelicula(id);
+    public ResponseModel deletePelicula(@PathVariable Long id){
+        return peliculaService.deletePelicula(id);
     }
 }

@@ -38,4 +38,11 @@ public class PeliculaServiceImpl implements PeliculaService{
             return null;
         }
     }
+
+    @Override
+    public void deletePelicula(Long id){
+        if (peliculaRepository.existsById(id)) {
+            peliculaRepository.deleteById(id);
+        }
+    }
 }

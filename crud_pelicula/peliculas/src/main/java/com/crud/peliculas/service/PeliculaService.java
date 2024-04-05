@@ -8,4 +8,5 @@ import com.crud.peliculas.model.Pelicula;
 public interface PeliculaService {
     List<Pelicula> getAllPeliculas();
     Optional<Pelicula> getPeliculaById(Long id);
+    Pelicula createPelicula(Pelicula pelicula);
 }
